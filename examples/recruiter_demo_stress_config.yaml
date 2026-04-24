@@ -1,0 +1,81 @@
+# Synthetic recruiter demonstration scenario.
+# This is intentionally severe and is not calibrated to real CCP, market, or member data.
+run_name: recruiter_demo_stress
+random_seed: 42
+n_paths: 1200
+time_horizon_days: 4000
+enable_wrong_way_risk: true
+include_liquidity_closeout_cost: true
+margin:
+  method: gaussian_var
+  confidence_level: 0.95
+  margin_period_of_risk_days: 2
+  anti_procyclicality_buffer: 0.0
+  volatility_floor: 0.0
+  lookback_window: 252
+  concentration_addon: 0.0
+  liquidity_addon: 0.0
+waterfall:
+  ccp_skin_in_game: 500000
+  assessment_cap_multiple: 0.5
+  include_defaulter_df: true
+  allow_vm_haircut_placeholder: false
+  recovery_tool_placeholder: false
+  default_fund_method: fixed
+  default_fund_value: 0.0
+closeout:
+  base_spread_cost: 0.04
+  volatility_liquidity_multiplier: 0.08
+  concentration_penalty: 0.15
+  market_depth_penalty: 0.03
+contagion:
+  liquidity_breach_ratio: 0.8
+scenarios:
+  - scenario_name: recruiter_demo_synthetic_stress
+    drift: -0.01
+    volatility: 0.85
+    jump_probability: 0.04
+    jump_size_distribution: normal(mean=-0.12,std=0.08)
+    liquidity_spread_multiplier: 1.9
+    stress_label: synthetic_demo
+members:
+  - member_id: D1
+    default_fund_contribution: 50000
+    liquidity_buffer: 20000
+    capital_buffer: 100000
+    credit_quality_score: 0.35
+    portfolio:
+      positions:
+        - asset_id: IDX_FUT
+          quantity: 12000000
+          price: 1.0
+  - member_id: S1
+    default_fund_contribution: 250000
+    liquidity_buffer: 80000
+    capital_buffer: 300000
+    credit_quality_score: 0.75
+    portfolio:
+      positions:
+        - asset_id: IDX_FUT
+          quantity: 200000
+          price: 1.0
+  - member_id: S2
+    default_fund_contribution: 250000
+    liquidity_buffer: 300000
+    capital_buffer: 500000
+    credit_quality_score: 0.8
+    portfolio:
+      positions:
+        - asset_id: IDX_FUT
+          quantity: 200000
+          price: 1.0
+  - member_id: S3
+    default_fund_contribution: 220000
+    liquidity_buffer: 250000
+    capital_buffer: 450000
+    credit_quality_score: 0.78
+    portfolio:
+      positions:
+        - asset_id: IDX_FUT
+          quantity: 150000
+          price: 1.0

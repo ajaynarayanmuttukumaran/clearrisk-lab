@@ -48,6 +48,10 @@ python3 -m clearrisk.cli compare \
   --config-a examples/gaussian_var_config.yaml \
   --config-b examples/fat_tail_config.yaml
 ```
+Recruiter demo (synthetic stress):
+```bash
+python3 -m clearrisk.cli run --config examples/recruiter_demo_stress_config.yaml
+```
 
 ## CLI Examples
 ```bash
