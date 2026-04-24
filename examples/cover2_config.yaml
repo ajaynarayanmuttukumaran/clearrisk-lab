@@ -1,0 +1,31 @@
+run_name: cover2_focus
+random_seed: 42
+n_paths: 1000
+time_horizon_days: 252
+margin:
+  method: expected_shortfall
+  confidence_level: 0.99
+  margin_period_of_risk_days: 5
+  anti_procyclicality_buffer: 0.02
+  volatility_floor: 0.18
+  lookback_window: 252
+  concentration_addon: 0.05
+  liquidity_addon: 0.05
+waterfall:
+  ccp_skin_in_game: 100000000
+  assessment_cap_multiple: 0.2
+  include_defaulter_df: true
+  allow_vm_haircut_placeholder: false
+  recovery_tool_placeholder: false
+  default_fund_method: cover2
+  default_fund_value: 0.0
+scenarios:
+  - scenario_name: stressed_cover2
+    drift: 0.03
+    volatility: 0.3
+    jump_probability: 0.01
+    jump_size_distribution: normal(mean=-0.08,std=0.05)
+    liquidity_spread_multiplier: 1.3
+    stress_label: cover2_stress
+members: []
+

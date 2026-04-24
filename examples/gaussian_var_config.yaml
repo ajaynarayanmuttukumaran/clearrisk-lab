@@ -1,0 +1,31 @@
+run_name: gaussian_var_compare
+random_seed: 42
+n_paths: 1000
+time_horizon_days: 252
+margin:
+  method: gaussian_var
+  confidence_level: 0.99
+  margin_period_of_risk_days: 5
+  anti_procyclicality_buffer: 0.0
+  volatility_floor: 0.0
+  lookback_window: 252
+  concentration_addon: 0.0
+  liquidity_addon: 0.0
+waterfall:
+  ccp_skin_in_game: 100000000
+  assessment_cap_multiple: 0.2
+  include_defaulter_df: true
+  allow_vm_haircut_placeholder: false
+  recovery_tool_placeholder: false
+  default_fund_method: percent_im
+  default_fund_value: 0.1
+scenarios:
+  - scenario_name: baseline_gaussian
+    drift: 0.06
+    volatility: 0.2
+    jump_probability: 0.0
+    jump_size_distribution: none
+    liquidity_spread_multiplier: 1.0
+    stress_label: baseline
+members: []
+

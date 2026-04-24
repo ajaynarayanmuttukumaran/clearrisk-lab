@@ -1,3 +1,25 @@
+Metadata-Version: 2.4
+Name: clearrisk-lab
+Version: 0.1.0
+Summary: Educational CCP stress-testing lab focused on margin procyclicality, tail risk, and default waterfall resilience.
+Author: Ajay Narayan Muttukumaran
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+Requires-Dist: typer>=0.12
+Requires-Dist: PyYAML>=6.0
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0; extra == "dev"
+Requires-Dist: ruff>=0.4; extra == "dev"
+Requires-Dist: black>=24.0; extra == "dev"
+Requires-Dist: streamlit>=1.35; extra == "dev"
+Dynamic: license-file
+
 # ClearRisk Lab: CCP Margin Procyclicality, Tail-Risk, and Default Waterfall Stress Engine
 
 ClearRisk Lab is an educational CCP stress-testing simulator that studies how margin models, tail-risk assumptions, liquidity close-out costs, default fund sizing, and assessment calls affect the resilience of a simplified central counterparty default waterfall.
@@ -36,32 +58,28 @@ Clearing risk is about tradeoffs, not single metrics. Higher margin can reduce C
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-python3 -m pip install -e .
-python3 -m pip install -r requirements.txt
-python3 -m pip install -r requirements-dev.txt
+pip install -e .
+pip install -r requirements.txt
+pip install -r requirements-dev.txt
 ```
 
 ## Quickstart
 ```bash
-python3 -m clearrisk.cli run --config examples/baseline_config.yaml
-python3 -m clearrisk.cli compare \
+python -m clearrisk.cli run --config examples/baseline_config.yaml
+python -m clearrisk.cli compare \
   --config-a examples/gaussian_var_config.yaml \
   --config-b examples/fat_tail_config.yaml
-```
-Recruiter demo (synthetic stress):
-```bash
-python3 -m clearrisk.cli run --config examples/recruiter_demo_stress_config.yaml
 ```
 
 ## CLI Examples
 ```bash
-python3 -m clearrisk.cli run --config examples/baseline_config.yaml
-python3 -m clearrisk.cli stress --scenario fat_tail
-python3 -m clearrisk.cli compare \
+python -m clearrisk.cli run --config examples/baseline_config.yaml
+python -m clearrisk.cli stress --scenario fat_tail
+python -m clearrisk.cli compare \
   --config-a examples/gaussian_var_config.yaml \
   --config-b examples/expected_shortfall_config.yaml \
   --comparison-csv reports/compare.csv
-python3 -m clearrisk.cli report \
+python -m clearrisk.cli report \
   --config examples/stressed_var_config.yaml \
   --compare-config examples/gaussian_var_config.yaml \
   --bundle-dir reports/example_bundle
@@ -69,14 +87,9 @@ python3 -m clearrisk.cli report \
 
 ## Dashboard Instructions
 ```bash
-python3 -m clearrisk.cli dashboard
+python -m clearrisk.cli dashboard
 ```
 Then open Streamlit in your browser at the URL shown in terminal output (default `http://localhost:8501`).
-
-## Testing
-```bash
-python3 -m pytest
-```
 
 ## Key Risk Experiments
 - Gaussian vs Student-t tail stress.
