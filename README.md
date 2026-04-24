@@ -36,28 +36,28 @@ Clearing risk is about tradeoffs, not single metrics. Higher margin can reduce C
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -e .
-pip install -r requirements.txt
-pip install -r requirements-dev.txt
+python3 -m pip install -e .
+python3 -m pip install -r requirements.txt
+python3 -m pip install -r requirements-dev.txt
 ```
 
 ## Quickstart
 ```bash
-python -m clearrisk.cli run --config examples/baseline_config.yaml
-python -m clearrisk.cli compare \
+python3 -m clearrisk.cli run --config examples/baseline_config.yaml
+python3 -m clearrisk.cli compare \
   --config-a examples/gaussian_var_config.yaml \
   --config-b examples/fat_tail_config.yaml
 ```
 
 ## CLI Examples
 ```bash
-python -m clearrisk.cli run --config examples/baseline_config.yaml
-python -m clearrisk.cli stress --scenario fat_tail
-python -m clearrisk.cli compare \
+python3 -m clearrisk.cli run --config examples/baseline_config.yaml
+python3 -m clearrisk.cli stress --scenario fat_tail
+python3 -m clearrisk.cli compare \
   --config-a examples/gaussian_var_config.yaml \
   --config-b examples/expected_shortfall_config.yaml \
   --comparison-csv reports/compare.csv
-python -m clearrisk.cli report \
+python3 -m clearrisk.cli report \
   --config examples/stressed_var_config.yaml \
   --compare-config examples/gaussian_var_config.yaml \
   --bundle-dir reports/example_bundle
@@ -65,9 +65,14 @@ python -m clearrisk.cli report \
 
 ## Dashboard Instructions
 ```bash
-python -m clearrisk.cli dashboard
+python3 -m clearrisk.cli dashboard
 ```
 Then open Streamlit in your browser at the URL shown in terminal output (default `http://localhost:8501`).
+
+## Testing
+```bash
+python3 -m pytest
+```
 
 ## Key Risk Experiments
 - Gaussian vs Student-t tail stress.
