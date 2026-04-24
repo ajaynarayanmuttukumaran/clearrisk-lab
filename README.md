@@ -1,4 +1,4 @@
-# ClearRisk Lab: CCP Margin Procyclicality, Tail-Risk, and Default Waterfall Stress Engine
+# ClearRisk Lab — CCP Margin & Default Waterfall Stress Simulator
 
 ClearRisk Lab is an educational CCP stress-testing simulator that studies how margin models, tail-risk assumptions, liquidity close-out costs, default fund sizing, and assessment calls affect the resilience of a simplified central counterparty default waterfall.
 
@@ -7,6 +7,14 @@ When does a CCP margin and default waterfall system appear safe under standard a
 
 ## Why This Matters
 Clearing risk is about tradeoffs, not single metrics. Higher margin can reduce CCP shortfall risk but increase member liquidity stress. Cover-2 can appear adequate in clean assumptions yet weaken under close-out frictions and concentrated stress. This project is designed to make those tensions explicit and testable.
+
+## Portfolio Highlights
+
+- Built as a modular Python package, not a notebook-only project.
+- Models CCP waterfall loss allocation with explicit layer-by-layer audit logs.
+- Compares VaR, Expected Shortfall, and stressed margin assumptions.
+- Tests Cover-2 default fund adequacy under tail-risk and liquidity stress.
+- Includes CLI, reports, notebooks, tests, and dashboard scaffold.
 
 ## What the Simulator Does
 - Simulates synthetic stress regimes (Gaussian baseline, Student-t tail stress, jump stress, high-volatility stress).
