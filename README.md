@@ -66,6 +66,7 @@ python3 -m clearrisk.cli report \
   --compare-config examples/gaussian_var_config.yaml \
   --bundle-dir reports/example_bundle
 ```
+Generated reports are written to `reports/` locally and are not committed by default.
 
 ## Dashboard Instructions
 ```bash

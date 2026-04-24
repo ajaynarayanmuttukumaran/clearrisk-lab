@@ -4,7 +4,10 @@ __pycache__/
 .DS_Store
 *.egg-info/
 *.Rhistory
-*PRIVATE*.md
+*PRIVATE*
+*interview*private*
 docs/.Rhistory
 docs/CLEAR_RISK_PROJECT_CONTEXT_PRIVATE.md
 docs/Ccp Waterfall Simulation Interview Prep.pdf
+docs/interview_guide.md
+reports/*
