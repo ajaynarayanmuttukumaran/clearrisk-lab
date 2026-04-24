@@ -1,12 +1,14 @@
-# Roadmap (Draft)
+# Roadmap
 
-Near-term:
-- Complete core tail-risk and waterfall engine.
-- Add Cover-2 and contagion diagnostics.
-- Expand reporting and dashboard interpretation.
+## Next Priorities
+- Add richer public-data calibration adapters (optional and clearly separated from synthetic defaults).
+- Build a more explicit wrong-way-risk factor model with transparent parameter controls.
+- Improve liquidation/auction approximation beyond current close-out heuristics.
+- Extend margin mechanics toward intraday behavior and collateral haircut handling.
+- Improve dashboard and report narratives for faster practitioner interpretation.
+- Add CI workflow for automated tests, linting, and CLI smoke checks.
 
-Future:
-- Historical data adapters (optional).
-- Rulebook-specific variants by CCP.
-- More realistic close-out and auction mechanics.
-
+## Longer-Horizon Enhancements
+- Introduce configurable CCP rulebook-style variants as comparative templates.
+- Add broader stress-benchmark packs for reproducible scenario families.
+- Expand export formats for portfolio/research workflow integration.
