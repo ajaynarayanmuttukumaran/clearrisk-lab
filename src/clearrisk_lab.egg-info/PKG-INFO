@@ -1,3 +1,25 @@
+Metadata-Version: 2.4
+Name: clearrisk-lab
+Version: 0.1.0
+Summary: Educational CCP stress-testing lab focused on margin procyclicality, tail risk, and default waterfall resilience.
+Author: Ajay Narayan Muttukumaran
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+Requires-Dist: typer>=0.12
+Requires-Dist: PyYAML>=6.0
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0; extra == "dev"
+Requires-Dist: ruff>=0.4; extra == "dev"
+Requires-Dist: black>=24.0; extra == "dev"
+Requires-Dist: streamlit>=1.35; extra == "dev"
+Dynamic: license-file
+
 # ClearRisk Lab: CCP Margin Procyclicality, Tail-Risk, and Default Waterfall Stress Engine
 
 ClearRisk Lab is an educational CCP stress-testing simulator that studies how margin models, tail-risk assumptions, liquidity close-out costs, default fund sizing, and assessment calls affect the resilience of a simplified central counterparty default waterfall.
